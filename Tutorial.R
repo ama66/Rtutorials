@@ -109,5 +109,34 @@ legend(x=0, y=2.4, legend=c("Sine", "Line 2"),
        col=c("red", "blue"), lty=1:2, cex=0.8)
 #drawing multiple plots in the same screen 
 
+library(astsa)
+par(mfrow=c(3,1)) # three rows and one column
+par(mar=c(3,3,3,3)) ## L,R, T and B space
+plot(so2, main="SO2 series" , xlab="Year")
+boxplot(so2,main="Box plot")
+hist(so2, col="grey")
+# library(pacman)
+# pacman::p_load(survival, ranger, ggfortify, flexsurv)
+## using the layout command 
+
+M <- rbind(c(1,1),c(2,3))
+print(M)
+layout(M)
+layout.show(3)
+par(mar=c(3,3,3,3))
+plot(so2, main="SO2 series" , xlab="Year")
+boxplot(so2,main="Box plot")
+hist(so2, col="grey")
+## Split screen
+split.screen(c(2,1))
+screen(1)
+par(mar=c(3,3,3,3))
+plot(so2, main="SO2 series" , xlab="Year")
+screen(2)
+split.screen(c(1,2), screen=2)
+par(mar=c(3,3,3,3))
+boxplot(so2,main="Box plot")
+screen(4)
+hist(so2, col="grey")
 
 
